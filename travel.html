@@ -1,0 +1,168 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+        <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+        <script src="js/modernizr.js"></script> <!-- Modernizr -->
+
+        <title>Travel</title>
+    </head>
+    <body>
+        <header>
+            <nav class="cd-stretchy-nav">
+                <a class="cd-nav-trigger" href="#0">
+                    Menu
+                    <span aria-hidden="true"></span>
+                </a>
+
+                <ul>
+                    <li><a href="index.html"><span>Home</span></a></li>
+                    <li><a href="resume.html"><span>Resume</span></a></li>
+                    <li><a href="travel.html" class="active"><span>Travel</span></a></li>
+                    <li><a href="contact.html"><span>Contact</span></a></li>
+                </ul>
+
+                <span aria-hidden="true" class="stretchy-nav-bg"></span>
+
+            </nav>
+
+            <section class="header-content">
+                <div>
+                    <h3 class="header-subtitle animate-pop-in">Toby Nelson</h3>
+                    <h1 class="header-title animate-pop-in">Travel</h1>
+                </div>
+            </section>
+
+        </header>
+
+        <main class="cd-main-content">
+            <div class="animate-pop-in">
+                <div id="map">
+                    <script>
+                        function myMap() {
+
+                            var locations = [
+                                ['London', 51.504831314, -0.123499506],
+                                ['Manchester', 53.48076, -2.24263],
+                                ['Shaldon', 50.54040, -3.51165],
+                                ['Bruges', 51.20935, 3.22470],
+                                ['Barcelona', 41.38506, 2.17340],
+                                ['Hong Kong', 22.31920, 114.16961],
+                                ['Dubai', 25.20485, 55.27078],
+                                ['Abu Dhabi', 24.45388, 54.37734],
+                                ['New York', 40.71278, -74.00597],
+                                ['Ljubljana', 46.05695, 14.50575],
+                                ['Florence', 43.76956, 11.25581],
+                                ['Venice', 45.44085, 12.31552],
+                                ['Heraklion', 35.33874, 25.14421],
+                                ['Alicante', 38.34600, -0.49069],
+                                ['Ubud', -8.50685, 115.26248],
+                                ['Gunskirchen', 48.13359, 13.95296],
+                                ['Vilnius', 54.68716, 25.27965],
+                                ['Edinburgh', 55.95325, -3.18827],
+                                ['Thiruvananthapuram', 8.52414, 76.93664],
+                                ['Houston', 29.76043, -95.36980],
+                                ['Chicago', 41.87811, -87.62980],
+                                ['Paris', 48.864716, 2.349014],
+                            ];
+
+                            var mapOptions = {
+                                center: new google.maps.LatLng(51.5, -0.12),
+                                zoom: 2,
+                                mapTypeId: google.maps.MapTypeId.ROADMAP
+                            }
+                            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+                            var infowindow = new google.maps.InfoWindow();
+
+                            var marker, i;
+
+                            for (i = 0; i < locations.length; i++) {  
+                                marker = new google.maps.Marker({
+                                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                                    map: map
+                                });
+
+                                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                    return function() {
+                                        infowindow.setContent(locations[i][0]);
+                                        infowindow.open(map, marker);
+                                    }
+                                })(marker, i));
+                            }
+                        }
+                    </script>
+
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3_eMlMydYPhdOlujQWKvuK6_OGxjwzY0&callback=myMap"></script>
+
+                </div>
+                <h2 class="body-header">Destinations</h2>
+                <section id="destinations-list">
+                    <div id = "destinations-list-left">
+
+                        <ul>
+                            <li>Asia
+                                <ul class="second-level-list">
+                                    <li>Abu Dhabi, AE</li>
+                                    <li>Dubai, AE</li>
+                                    <li>Hong Kong, HK</li>
+                                    <li>Ubud, ID</li>
+                                    <li>Thiruvananthapuram, IN</li>
+                                </ul>
+                            </li> 
+                            <li class="sub-li">North America
+                                <ul class="second-level-list">
+                                    <li>Chicago, IL</li>
+                                    <li>New York City, NY</li>
+                                    <li>Houston, TX</li>
+                                </ul>
+                            </li> 
+                        </ul>
+                    </div>
+
+                    <div id = "destinations-list-center">
+                        <ul>
+                            <li>Europe
+                                <ul class="second-level-list">
+                                    <li>Gunskirchen, AT</li>
+                                    <li>Bruges, BE</li>
+                                    <li>Paris, FR</li>
+                                    <li>Heraklion, GR</li>
+                                    <li>Florence, IT</li>
+                                    <li>Venice, IT</li>
+                                    <li>Vilnius, LT</li>
+                                    <li>Ljubljana, SI</li>
+                                    <li>Alicante, SP</li>
+                                    <li>Barcelona, SP</li>
+                                </ul>
+                            </li> 
+                        </ul>
+                    </div>
+
+                    <div id = "destinations-list-right">
+                        <ul>
+                            <li>&nbsp;
+                                <ul class="second-level-list">
+                                    <li>Edinburgh, UK</li>
+                                    <li>London, UK</li>
+                                    <li>Manchester, UK</li>
+                                    <li>Shaldon, UK</li>
+                                </ul>
+                            </li> 
+                        </ul>
+                    </div>
+
+                </section>
+            </div>
+        </main>
+        <footer>
+            <div>Icons made by <a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a> &amp; <a href="https://www.flaticon.com/authors/dave-gandy" title="dave-gandy">Dave Gandy</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>. Copyright 2018 Toby Nelson.</div>
+        </footer>
+
+        <script src="js/jquery-2.1.4.js"></script>
+        <script src="js/main.js"></script> <!-- Resource jQuery -->
+    </body>
+</html>
